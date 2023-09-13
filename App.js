@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+
 import store from "./store";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
