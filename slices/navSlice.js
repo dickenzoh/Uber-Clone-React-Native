@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const inititalState = {
+const initialState = {
   origin: null,
   destination: null,
   travelTimeInformation: null,
@@ -8,8 +8,8 @@ const inititalState = {
 
 const navSlice = createSlice({
   name: "navigations",
-  initialState: [],
-  reducer: {
+  initialState,
+  reducers: {
     setOrigin: (state, action) => {
       state.origin = action.payload;
     },

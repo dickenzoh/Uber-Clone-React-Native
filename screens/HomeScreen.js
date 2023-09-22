@@ -30,6 +30,7 @@ const HomeScreen = () => {
           // currentLocation={true}
           // currentLocationLabel="Current location"
           fetchDetails={true}
+          enablePoweredByContainer={false}
           renderDescription={(row) => row.description}
           onPress={(data, details = null) => {
             dispatch(

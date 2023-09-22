@@ -3,7 +3,9 @@ import React from "react";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
+import { GOOGLE_MAPS_APIKEY } from "@env";
 import { setDestination } from "../slices/navSlice";
+import tw from "tailwind-react-native-classnames";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -53,7 +55,7 @@ const toInputBoxStyles = StyleSheet.create({
     flex: 0,
   },
   textInput: {
-    backgroundColor: "#00000F",
+    backgroundColor: "#ECECEC",
     borderRadius: 0,
     fontSize: 10,
   },
