@@ -1,4 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -10,6 +16,7 @@ import PackageScreen from "./screens/PackageScreen";
 import ReserveScreen from "./screens/ReserveScreen";
 import RideScreen from "./screens/RideScreen";
 import TravelScreen from "./screens/TravelScreen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -17,38 +24,46 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="HomeScreen"
-            component={HomeScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="MapScreen"
-            component={MapScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="PackageScreen"
-            component={PackageScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ReserveScreen"
-            component={ReserveScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="RideScreen"
-            component={RideScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="TravelScreen"
-            component={TravelScreen}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
+        <SafeAreaProvider>
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "padding"}
+            style={{ flex: 1 }}
+            keyboardVerticalOffset={Platform.OS === "ios" ? -64 : -45}
+          >
+            <Stack.Navigator>
+              <Stack.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="MapScreen"
+                component={MapScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="PackageScreen"
+                component={PackageScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="ReserveScreen"
+                component={ReserveScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="RideScreen"
+                component={RideScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="TravelScreen"
+                component={TravelScreen}
+                options={{ headerShown: false }}
+              />
+            </Stack.Navigator>
+          </KeyboardAvoidingView>
+        </SafeAreaProvider>
       </NavigationContainer>
       {/* <View>
         <HomeScreen />
