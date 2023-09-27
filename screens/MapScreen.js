@@ -31,7 +31,7 @@ const MapScreen = () => {
             }}
           />
         </Stack.Navigator>
-        <NavFavourites />
+        {/* <NavFavourites /> */}
       </View>
     </View>
   );
