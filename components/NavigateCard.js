@@ -30,12 +30,8 @@ const NavigateCard = () => {
             nearbyPlacesAPI="GooglePlacesSearch"
             debounce={400}
             fetchDetails={true}
-            query={{
-              key: GOOGLE_MAPS_APIKEY,
-              language: "en",
-              types: "(cities)",
-            }}
-            renderDescription={(row) => row.description}
+            returnKeyType="search"
+            minLength={2}
             onPress={(data, details = null) => {
               dispatch(
                 setDestination({
@@ -45,8 +41,11 @@ const NavigateCard = () => {
               );
               navigation.navigate("RideOptionsCard");
             }}
-            returnKeyType="search"
-            minLength={2}
+            query={{
+              key: GOOGLE_MAPS_APIKEY,
+              language: "en",
+            }}
+            renderDescription={(row) => row.description}
           />
         </View>
 
